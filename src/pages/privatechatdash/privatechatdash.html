@@ -1,0 +1,61 @@
+<!--
+  Generated template for the PrivatechatdashPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Private for {{usernameFromDb}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <ion-list>
+        <ion-item>
+          <ion-label>Select Friend To Chat With</ion-label>
+          <ion-select [(ngModel)] ="selectedfriend">
+            <ion-option *ngFor="let friend of friendsList" [value]="friend.friends"> {{friend.friends}} </ion-option>
+           
+          </ion-select>
+          
+        </ion-item>
+      </ion-list>
+
+
+      <ion-card>
+          <img src="../../assets/imgs/ba7ece39debdcf7698d937fd1dea1268.png"/>
+          <ion-card-content>
+            <ion-card-title>
+              Enter Username To Start Private Chat
+              </ion-card-title>
+            <p>
+              SO... If you know the name of any registered user add the username below and create a private chat
+            </p>
+          </ion-card-content>
+        </ion-card>
+
+        <ion-list>
+
+            <ion-item>
+              <ion-label stacked>Username</ion-label>
+              <ion-input type="text" [(ngModel)] ="usernameFromImputField"></ion-input>
+            </ion-item>
+
+            <button ion-button
+            type="submit"
+            (click)="onClickStartPrivateChat()"
+            block >
+              Start Private Chat
+            </button>
+          
+           
+          
+          </ion-list>
+
+
+</ion-content>

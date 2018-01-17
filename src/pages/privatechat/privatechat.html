@@ -1,0 +1,95 @@
+<!--
+  Generated template for the PrivatechatPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>privatechat</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <ion-grid>
+        <button ion-button clear small right  class="previousMessage" (click)="onClickGetPreviousPrivateMessage()" > <span>get previous messages </span></button>
+
+
+        </ion-grid>
+
+        <ion-row *ngFor="let message of oldPrivateChatMessage">
+      
+            <ion-col col-9 *ngIf="message.senderName !== username" class="chatmessage" [ngClass]="{'message-from-me': message.from === username, 'chat-group-message-other': message.from !== username}" >
+                <span class="username_fbd"> {{message.senderName}}</span><br>
+                <span>{{message.messageBody}}</span>
+                <div class="arrivaltime">{{message.createdAt | date:'medium'}}</div>
+              </ion-col>
+  
+              <hr/>
+        </ion-row>
+        
+        <ion-grid>
+
+           
+
+        <ion-row *ngFor="let message of messages">
+            
+            <ion-col col-9 *ngIf="message.from !== username" class="chatmessage" [ngClass]="{'message-from-me': message.from === username, 'chat-group-message-other': message.from !== username}" >
+              <span class="username_fbd"> {{message.from}}</span><br>
+              <span>{{message.text}}</span>
+              <span>{{message.date}}</span>
+              <div class="arrivaltime">{{message.date | date:'medium'}}</div>
+            </ion-col>
+       
+            <ion-col offset-3 col-9 *ngIf="message.from === username" class="chatmessage" [ngClass]="{'message-from-me': message.from === username, 'chat-group-message-other': message.from !== username}" >
+              <span class="username_fbd"> {{message.from}}</span><br>
+              <span>{{message.text}}</span>
+              <div class="arrivaltime">{{message.date |  date:'medium'}}</div>
+            </ion-col>
+
+           
+          </ion-row>
+        <!-- <ion-row *ngFor="let message of messages">
+          
+            <ion-col col-9 *ngIf="message.from !== message.to" class="chatmessage" [ngClass]="{'message-from-me': message.from === username, 'chat-group-message-other': message.to !== username}" >
+                <span class="username_fbd"> {{message.from}}</span><br>
+            <span> {{message.text}}</span>
+            <div class="arrivaltime"> </div>
+          </ion-col>
+     
+          <ion-col offset-3 col-9 *ngIf="message.from === username" class="chatmessage" [ngClass]="{'message-from-me': message.from === username, 'chat-group-message-other': message.from !== username}" >
+              <span class="username_fbd"> {{message.to}}</span><br>
+            <span> {{message.text}}</span>
+            <div class="arrivaltime"></div>
+          </ion-col>
+
+         
+        </ion-row> -->
+      </ion-grid>
+
+</ion-content>
+
+<ion-footer>
+    <ion-toolbar>
+      <ion-row class="message_ion_row">
+        <ion-col col-9>
+          <ion-item no-lines>
+            <ion-input type="text" placeholder="Message" [(ngModel)]="singleMessage" ></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col col-3>
+          <button 
+          ion-button 
+          clear 
+          color="primary"
+          (click)="onClickSend()">
+          Send
+        </button>
+        </ion-col>
+      </ion-row>
+    </ion-toolbar>
+  </ion-footer>

@@ -1,0 +1,39 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>register new user</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)" >
+    <ion-list>
+      <ion-item>
+        <ion-label floating>Username</ion-label>
+        <ion-input type="text" name="userName" ngModel required></ion-input>
+      </ion-item>
+
+      <ion-item>
+          <ion-label floating>Email</ion-label>
+          <ion-input type="email" name="email"  ngModel required></ion-input>
+        </ion-item>
+
+          <ion-item>
+              <ion-label floating>Password</ion-label>
+              <ion-input type="password" name="password"  ngModel required [minlength]="6"> </ion-input>
+            </ion-item>
+
+    </ion-list>
+    <button ion-button
+    type="submit"
+    block
+    [disabled]="!f.valid" >
+      Create User
+    </button>
+  </form>
+
+</ion-content>

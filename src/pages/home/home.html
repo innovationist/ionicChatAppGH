@@ -1,14 +1,36 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      Welcome to Chat App
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+
+  
+    <!-- <ion-img width="80" height="80" src="src/assets/imgs/chat-png-png-image-512.png" center></ion-img> -->
+
+<ion-grid>
+    <ion-row>
+      <ion-col>
+          <button ion-button  icon-left full [navPush]="registerPage">
+              <ion-icon name="clipboard"></ion-icon>
+          Register
+          </button>
+      </ion-col>
+      
+      
+      
+      <ion-col>
+          <button ion-button icon-left full [navPush]="loginPage"> 
+              <ion-icon name="key"></ion-icon>
+              Login
+            </button>
+      </ion-col>
+     
+    </ion-row>
+  </ion-grid>
+  
+  
 </ion-content>
