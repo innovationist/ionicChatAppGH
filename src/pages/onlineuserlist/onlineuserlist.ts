@@ -50,7 +50,7 @@ export class OnlineuserlistPage {
 
         }else{
 
-          this.toastNotification('friend not added');
+          this.toastNotification(data.message);
         }
         
 
